@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://brvtwkxg2cmn0"]
+
+[ext_resource type="Texture2D" uid="uid://dr7a4qxcwgyhd" path="res://Assets/Tilesets/FondoPrueba.jpg" id="1_kq2al"]
+
+[node name="SkyBackground" type="ParallaxBackground"]
+
+[node name="SkyLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1530, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="SkyLayer"]
+position = Vector2(575, 325)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_kq2al")

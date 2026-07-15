@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://dd4hqijb65gmy"]
+
+[ext_resource type="Script" path="res://Scripts/UI/game_over.gd" id="1_dd736"]
+[ext_resource type="Texture2D" uid="uid://beiorq5wlj7ql" path="res://Assets/Menu/GameOver_Victory_Screem.png" id="2_qu8w6"]
+[ext_resource type="PackedScene" uid="uid://y8lc5xkdx25p" path="res://Scenes/UI/MenuButton.tscn" id="3_k6vb3"]
+[ext_resource type="Texture2D" uid="uid://bhulhegcwsqhu" path="res://Assets/Menu/RetryButton.png" id="4_bs3p2"]
+[ext_resource type="Texture2D" uid="uid://lywp7dng5tve" path="res://Assets/Menu/MenuButton.png" id="5_g76sw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dij7"]
+atlas = ExtResource("2_qu8w6")
+region = Rect2(0, 0, 283, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh2yh"]
+atlas = ExtResource("2_qu8w6")
+region = Rect2(283, 0, 283, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ufw"]
+atlas = ExtResource("2_qu8w6")
+region = Rect2(566, 0, 283, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1qyq"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_1dij7")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_gh2yh")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v7ufw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v7ufw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v7ufw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_1dij7")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_gh2yh")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v7ufw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v7ufw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_v7ufw")
+}],
+"loop": true,
+"name": &"game_over",
+"speed": 4.0
+}]
+
+[node name="GameOver" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_dd736")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -41.5
+offset_right = 171.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryMenuButton" parent="." instance=ExtResource("3_k6vb3")]
+process_mode = 2
+position = Vector2(452, 494)
+
+[node name="Sprite2D2" type="Sprite2D" parent="RetryMenuButton"]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_bs3p2")
+
+[node name="MenuButton3" parent="." instance=ExtResource("3_k6vb3")]
+process_mode = 2
+position = Vector2(883, 491)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MenuButton3"]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_g76sw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(653, 189)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_t1qyq")
+animation = &"game_over"
+
+[connection signal="pressed" from="RetryMenuButton" to="." method="_on_retry_menu_button_pressed"]
+[connection signal="pressed" from="MenuButton3" to="." method="_on_menu_button_3_pressed"]

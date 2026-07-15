@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfkqhg1hpv4qk"]
+
+[ext_resource type="Script" path="res://Scripts/UI/hud2.gd" id="1_ui361"]
+[ext_resource type="PackedScene" uid="uid://d1jjc17n74ju6" path="res://Scenes/UI/HeartUI.tscn" id="2_jjxsn"]
+[ext_resource type="Texture2D" uid="uid://cuwcjdb4648lg" path="res://Assets/Objets/Heart3.png" id="3_8g546"]
+[ext_resource type="Texture2D" uid="uid://rsjecite7bqo" path="res://Assets/Objets/EmpyHeart1.png" id="4_157tk"]
+[ext_resource type="Texture2D" uid="uid://djtb73fd2k72b" path="res://Assets/Objets/CoinsHud.png" id="5_u356v"]
+[ext_resource type="PackedScene" uid="uid://ljpxwqoexpn1" path="res://Scenes/UI/PauseScreen.tscn" id="6_xupvq"]
+
+[node name="Hud2" type="CanvasLayer" groups=["hud"]]
+script = ExtResource("1_ui361")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthLabel" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+text = "Vida: 3"
+
+[node name="CoinLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 45.0
+offset_right = 150.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 100.0
+offset_right = 363.0
+offset_bottom = 123.0
+
+[node name="HeartUi" parent="." instance=ExtResource("2_jjxsn")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+full_heart = ExtResource("3_8g546")
+empty_heart = ExtResource("4_157tk")
+
+[node name="CoinsHud" type="Sprite2D" parent="."]
+position = Vector2(50, 79)
+texture = ExtResource("5_u356v")
+
+[node name="PauseScreen" parent="." instance=ExtResource("6_xupvq")]

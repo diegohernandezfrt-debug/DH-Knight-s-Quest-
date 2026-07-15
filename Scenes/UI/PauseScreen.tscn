@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ljpxwqoexpn1"]
+
+[ext_resource type="Script" path="res://Scripts/UI/pause_screen.gd" id="1_12a40"]
+[ext_resource type="Texture2D" uid="uid://csypsvf4qnum7" path="res://Assets/Menu/Pause.png" id="2_fj32t"]
+
+[node name="PauseScreen" type="CanvasLayer" groups=["pause_screen"]]
+script = ExtResource("1_12a40")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.227451)
+
+[node name="PauseSprite" type="Sprite2D" parent="."]
+position = Vector2(640, 294)
+texture = ExtResource("2_fj32t")
+
+[node name="ContinueLabel" type="Label" parent="."]
+offset_left = 360.0
+offset_top = 506.0
+offset_right = 920.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0.82003, 0.670982, 1.92523e-06, 1)
+theme_override_font_sizes/font_size = 40
+text = "Press ESC to continue playing"
+horizontal_alignment = 1
+vertical_alignment = 1

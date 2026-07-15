@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://d5eus6ocwdu0"]
+
+[ext_resource type="Script" path="res://Scripts/Items/treasure_chest.gd" id="1_m05qk"]
+[ext_resource type="Texture2D" uid="uid://7vs88m5na7uq" path="res://Assets/Objets/ChestFrames.png" id="1_yg5nh"]
+[ext_resource type="PackedScene" uid="uid://7cr71qpi100v" path="res://Scenes/Items/RewardItem.tscn" id="2_rdxv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyv6k"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(0, 443, 352, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr30j"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(682, 0, 341, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r82g1"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(341, 0, 341, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfpep"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(0, 0, 341, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgmys"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(0, 0, 341, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhbkb"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(341, 0, 341, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1i0v"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(682, 0, 341, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onbuy"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(0, 443, 350, 443)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml1i6"]
+atlas = ExtResource("1_yg5nh")
+region = Rect2(350, 443, 350, 443)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_omwlo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyv6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr30j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r82g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfpep")
+}],
+"loop": false,
+"name": &"closechest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgmys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhbkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1i0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onbuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml1i6")
+}],
+"loop": false,
+"name": &"openchest",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j371e"]
+size = Vector2(50, 23)
+
+[node name="TreasureChest" type="Area2D"]
+script = ExtResource("1_m05qk")
+reward_scene = ExtResource("2_rdxv1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_omwlo")
+animation = &"closechest"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_j371e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

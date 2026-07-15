@@ -1,0 +1,137 @@
+[gd_scene load_steps=19 format=3 uid="uid://brqc4l3ey0mae"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/goblin.gd" id="1_6wsim"]
+[ext_resource type="Texture2D" uid="uid://swi8cf6tvlas" path="res://Assets/Sprites/GoblinRunAndDead.png" id="2_bq8wa"]
+[ext_resource type="Texture2D" uid="uid://dnnml280wl8s3" path="res://Assets/Sprites/GoblinReposo.png" id="3_apmai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th5nq"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(490, 263, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v8gc"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(735, 263, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbafx"]
+atlas = ExtResource("3_apmai")
+region = Rect2(0, 0, 177, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kaag"]
+atlas = ExtResource("3_apmai")
+region = Rect2(177, 0, 177, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8cev"]
+atlas = ExtResource("3_apmai")
+region = Rect2(354, 0, 177, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgrop"]
+atlas = ExtResource("3_apmai")
+region = Rect2(531, 0, 177, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llua3"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(0, 0, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_182tu"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(245, 0, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs2y5"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(490, 0, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqv5v"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(735, 0, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojo4x"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(0, 263, 245, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l8nf"]
+atlas = ExtResource("2_bq8wa")
+region = Rect2(245, 263, 245, 263)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmewt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th5nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v8gc")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbafx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kaag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8cev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgrop")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llua3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_182tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs2y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqv5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojo4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l8nf")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnsxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcqmm"]
+
+[node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_6wsim")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_mmewt")
+animation = &"dead"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_hnsxa")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 80)
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(-3.8147e-06, -4.76837e-07)
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_bcqmm")
+debug_color = Color(0.994694, 0, 0.217901, 0.42)
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

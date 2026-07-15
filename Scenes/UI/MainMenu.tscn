@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://bht77enf21yqi"]
+
+[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_5v3ij"]
+[ext_resource type="Texture2D" uid="uid://1534r100f213" path="res://Assets/Menu/MenuPrueba.jpg" id="2_n6h0q"]
+[ext_resource type="PackedScene" uid="uid://y8lc5xkdx25p" path="res://Scenes/UI/MenuButton.tscn" id="3_00pae"]
+[ext_resource type="Texture2D" uid="uid://cky1mfcodmuc1" path="res://Assets/Menu/ContinuePress.png" id="3_6sj4a"]
+[ext_resource type="Texture2D" uid="uid://cbi5p4qshnco3" path="res://Assets/Menu/NewGamePress.png" id="4_4xco8"]
+[ext_resource type="Texture2D" uid="uid://bl0x3v6jrncb0" path="res://Assets/Menu/LevelsPress.png" id="5_bmpte"]
+[ext_resource type="Texture2D" uid="uid://f7w2sw44dbgs" path="res://Assets/Menu/ExitPress.png" id="6_barom"]
+[ext_resource type="Texture2D" uid="uid://bhl4w7on8f0kv" path="res://Assets/Menu/Logo.png" id="8_evi6a"]
+
+[sub_resource type="Animation" id="Animation_hn8kg"]
+resource_name = "logo"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.4, 1.4), Vector2(1.45, 1.45), Vector2(1.5, 1.5), Vector2(1.45, 1.45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyyc6"]
+_data = {
+"logo": SubResource("Animation_hn8kg")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5v3ij")
+
+[node name="MenuPrueba" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -43.0
+offset_right = 1025.0
+offset_bottom = 594.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+mouse_filter = 2
+texture = ExtResource("2_n6h0q")
+stretch_mode = 5
+
+[node name="ContinueButton" parent="." instance=ExtResource("3_00pae")]
+position = Vector2(642, 290)
+
+[node name="ContinuePress" type="Sprite2D" parent="ContinueButton"]
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("3_6sj4a")
+
+[node name="NewGameButton" parent="." instance=ExtResource("3_00pae")]
+position = Vector2(642, 364)
+
+[node name="NewGamePress" type="Sprite2D" parent="NewGameButton"]
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("4_4xco8")
+
+[node name="LevelsButton" parent="." instance=ExtResource("3_00pae")]
+position = Vector2(642, 442)
+
+[node name="LevelsPress" type="Sprite2D" parent="LevelsButton"]
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("5_bmpte")
+
+[node name="ExitButton" parent="." instance=ExtResource("3_00pae")]
+position = Vector2(642, 516)
+
+[node name="ExitPress" type="Sprite2D" parent="ExitButton"]
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("6_barom")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(664, 98)
+scale = Vector2(1.45, 1.45)
+texture = ExtResource("8_evi6a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jyyc6")
+}
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="LevelsButton" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

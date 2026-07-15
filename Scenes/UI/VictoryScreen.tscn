@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvc1o68u7owow"]
+
+[ext_resource type="Script" path="res://Scripts/UI/victory_screen.gd" id="1_qfjn1"]
+[ext_resource type="PackedScene" uid="uid://y8lc5xkdx25p" path="res://Scenes/UI/MenuButton.tscn" id="2_cnslx"]
+[ext_resource type="Texture2D" uid="uid://bftvy5w4f4ao3" path="res://Assets/Menu/ContinueButton2.png" id="3_1varq"]
+[ext_resource type="Texture2D" uid="uid://lywp7dng5tve" path="res://Assets/Menu/MenuButton.png" id="4_6dqow"]
+
+[node name="VictoryScreen" type="CanvasLayer" groups=["victory_screen"]]
+script = ExtResource("1_qfjn1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.258824)
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.0
+offset_top = -41.5
+offset_right = 313.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.27196, 0.723765, 3.85046e-07, 1)
+theme_override_font_sizes/font_size = 60
+text = "¡NIVEL COMPLETADO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_left = 260.0
+offset_top = 422.0
+offset_right = 372.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.801618, 0.696925, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Coins: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemiesLabel" type="Label" parent="."]
+offset_left = 488.0
+offset_top = 414.0
+offset_right = 643.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Enemies: 0"
+
+[node name="LevelDeathsLabel" type="Label" parent="."]
+offset_left = 748.0
+offset_top = 418.0
+offset_right = 950.0
+offset_bottom = 460.0
+theme_override_colors/font_color = Color(0.494118, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Level Death: 0"
+
+[node name="TotalDeathsLabel" type="Label" parent="."]
+offset_left = 498.0
+offset_top = 500.0
+offset_right = 698.0
+offset_bottom = 542.0
+theme_override_colors/font_color = Color(0.6, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Total Death: 0"
+
+[node name="ContinueButton2" parent="." instance=ExtResource("2_cnslx")]
+position = Vector2(398, 600)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ContinueButton2"]
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("3_1varq")
+
+[node name="MenuButton2" parent="." instance=ExtResource("2_cnslx")]
+position = Vector2(814, 598)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MenuButton2"]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_6dqow")
+
+[connection signal="pressed" from="ContinueButton2" to="." method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="MenuButton2" to="." method="_on_menu_button_2_pressed"]

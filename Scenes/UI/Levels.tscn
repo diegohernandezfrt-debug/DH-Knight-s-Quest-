@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsuodrxf2267g"]
+
+[ext_resource type="Script" path="res://Scripts/UI/levels.gd" id="1_840o4"]
+[ext_resource type="Texture2D" uid="uid://dlx615nw04l0t" path="res://Assets/Menu/Levels/Levels.jpg" id="2_kecvf"]
+[ext_resource type="PackedScene" uid="uid://y8lc5xkdx25p" path="res://Scenes/UI/MenuButton.tscn" id="3_c3gnr"]
+[ext_resource type="Texture2D" uid="uid://lywp7dng5tve" path="res://Assets/Menu/MenuButton.png" id="4_sc0oq"]
+[ext_resource type="PackedScene" uid="uid://dhi6bnbnowddd" path="res://Scenes/UI/LevelCard.tscn" id="5_hqadh"]
+[ext_resource type="Texture2D" uid="uid://duqu2xh2gu5i5" path="res://Assets/Menu/Levels/Level01.jpg" id="6_c5tuv"]
+[ext_resource type="Texture2D" uid="uid://ch534ovmd7sc1" path="res://Assets/Menu/Levels/Level02.jpg" id="7_1lo6t"]
+[ext_resource type="Texture2D" uid="uid://d0b5pl60yi04j" path="res://Assets/Menu/Levels/Level03.jpg" id="8_4rdnm"]
+[ext_resource type="Texture2D" uid="uid://dsek71mrk0ygr" path="res://Assets/Menu/Levels/Level04.jpg" id="9_7wrvd"]
+[ext_resource type="Texture2D" uid="uid://266o881u5r8o" path="res://Assets/Menu/Levels/Level05.jpg" id="10_2nqo4"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_840o4")
+
+[node name="Levels" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1011.0
+offset_bottom = 572.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.27, 1.27)
+mouse_filter = 2
+texture = ExtResource("2_kecvf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackButton" parent="." instance=ExtResource("3_c3gnr")]
+position = Vector2(1041, 419)
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackButton"]
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("4_sc0oq")
+
+[node name="LevelCard1" parent="." instance=ExtResource("5_hqadh")]
+position = Vector2(231, 184)
+
+[node name="Sprite2D2" type="Sprite2D" parent="LevelCard1"]
+position = Vector2(-0.550004, -3.1)
+scale = Vector2(1.25819, 1.24578)
+texture = ExtResource("6_c5tuv")
+
+[node name="LevelCard2" parent="." instance=ExtResource("5_hqadh")]
+position = Vector2(647, 184)
+level_number = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="LevelCard2"]
+position = Vector2(1.49996, -2.30001)
+scale = Vector2(1.24055, 1.23745)
+texture = ExtResource("7_1lo6t")
+
+[node name="LevelCard3" parent="." instance=ExtResource("5_hqadh")]
+position = Vector2(1068, 192)
+level_number = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="LevelCard3"]
+position = Vector2(-4.44996, 0)
+scale = Vector2(1.24318, 1.23118)
+texture = ExtResource("8_4rdnm")
+
+[node name="LevelCard4" parent="." instance=ExtResource("5_hqadh")]
+position = Vector2(228, 544)
+level_number = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="LevelCard4"]
+position = Vector2(-0.70002, -0.599994)
+scale = Vector2(1.25744, 1.29422)
+texture = ExtResource("9_7wrvd")
+
+[node name="LevelCard5" parent="." instance=ExtResource("5_hqadh")]
+position = Vector2(647, 539)
+level_number = 5
+
+[node name="Sprite2D2" type="Sprite2D" parent="LevelCard5"]
+position = Vector2(-1.49997, 1.97887e-05)
+scale = Vector2(1.27758, 1.22008)
+texture = ExtResource("10_2nqo4")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LevelCard1" to="." method="_on_level_card_1_pressed"]
+[connection signal="pressed" from="LevelCard2" to="." method="_on_level_card_2_pressed"]
+[connection signal="pressed" from="LevelCard3" to="." method="_on_level_card_3_pressed"]
+[connection signal="pressed" from="LevelCard4" to="." method="_on_level_card_4_pressed"]
+[connection signal="pressed" from="LevelCard5" to="." method="_on_level_card_5_pressed"]

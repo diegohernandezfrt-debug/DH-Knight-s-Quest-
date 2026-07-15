@@ -1,0 +1,146 @@
+[gd_scene load_steps=20 format=3 uid="uid://cpuius5awpel0"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/mimic.gd" id="1_m2e3i"]
+[ext_resource type="Texture2D" uid="uid://rp5b54bowt48" path="res://Assets/Sprites/MimicFramesabatido.png" id="2_vi6qo"]
+[ext_resource type="Texture2D" uid="uid://dycjj5hc65vx" path="res://Assets/Sprites/MimicIDLE.png" id="3_hd6ay"]
+[ext_resource type="Texture2D" uid="uid://b3wx57hl8uteh" path="res://Assets/Sprites/MimicRunAtack.png" id="4_dmh0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlo6c"]
+atlas = ExtResource("2_vi6qo")
+region = Rect2(0, 0, 295, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0jp4"]
+atlas = ExtResource("2_vi6qo")
+region = Rect2(0, 254, 295, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3dcq"]
+atlas = ExtResource("2_vi6qo")
+region = Rect2(295, 254, 295, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cy3q"]
+atlas = ExtResource("3_hd6ay")
+region = Rect2(0, 0, 191, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcoew"]
+atlas = ExtResource("3_hd6ay")
+region = Rect2(191, 0, 191, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhn44"]
+atlas = ExtResource("3_hd6ay")
+region = Rect2(382, 0, 191, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fqil"]
+atlas = ExtResource("3_hd6ay")
+region = Rect2(573, 0, 191, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lfw0"]
+atlas = ExtResource("4_dmh0b")
+region = Rect2(0, 0, 256, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nqui"]
+atlas = ExtResource("4_dmh0b")
+region = Rect2(256, 0, 256, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5udbl"]
+atlas = ExtResource("4_dmh0b")
+region = Rect2(512, 0, 256, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p532n"]
+atlas = ExtResource("4_dmh0b")
+region = Rect2(768, 0, 256, 267)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckc75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlo6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0jp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3dcq")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cy3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcoew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhn44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fqil")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lfw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nqui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5udbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p532n")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk4ie"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cs32"]
+size = Vector2(45, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20otp"]
+size = Vector2(220, 120)
+
+[node name="Mimic" type="CharacterBody2D"]
+script = ExtResource("1_m2e3i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ckc75")
+animation = &"idle"
+frame = 1
+frame_progress = 0.152701
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -9)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_kk4ie")
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(2.5, 1)
+shape = SubResource("RectangleShape2D_8cs32")
+debug_color = Color(0.997394, 0, 0.166923, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_20otp")
+debug_color = Color(0.569753, 0.556181, 0, 0.42)
+
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
