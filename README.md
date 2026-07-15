@@ -1,37 +1,109 @@
-🎮 After weeks of development, I'm happy to release my first complete 2D platformer: DH Knight's Quest!
+# ⚔️ DH Knight's Quest
 
-This project was built from scratch using Godot Engine and includes:
+A 2D medieval action-platformer developed with **Godot Engine** and **GDScript**.
 
-⚔️ Combat
+---
 
-👾 Multiple enemies
+## 📸 Screenshots
 
-💾 Save system
+### Main Menu
 
-🏆 Boss fight
+![Main Menu](<img width="1151" height="677" alt="Menu" src="https://github.com/user-attachments/assets/0f450a30-6dc2-4f7d-9e29-c80aaa83918b" />
+)
 
-🎵 Original audio integration
+### Gameplay
 
-❤️ Custom HUD
+![Gameplay](<img width="1149" height="677" alt="Level01" src="https://github.com/user-attachments/assets/e53a814d-d431-4a49-a740-f7df4aaad79e" />
+)
 
-🗺️ Five playable levels
+### Boss Fight
 
-It was a great learning experience, and I'm excited to continue improving as a game developer.
+![Boss](<img width="814" height="477" alt="Boss" src="https://github.com/user-attachments/assets/71cda366-8dd9-4080-a101-90d087a78e17" />
+)
 
-Screenshot
+### Victory Screen
 
-<img width="1151" height="677" alt="Menu" src="https://github.com/user-attachments/assets/b8a53d84-3e18-4630-90a0-90b426860ad1" />
+![Victory](<img width="1154" height="682" alt="Victory" src="https://github.com/user-attachments/assets/7ba6e500-c733-4c8f-ae93-490235ef9696" />
+)
 
-<img width="1152" height="682" alt="Levels" src="https://github.com/user-attachments/assets/d2bacd42-3036-44ee-a1db-4bf42ca13f45" />
+---
 
-<img width="1149" height="677" alt="Level01" src="https://github.com/user-attachments/assets/8143a4c1-fe24-43ab-a03b-1469a63d9b01" />
+# 🎮 About
 
-<img width="1150" height="678" alt="Pause" src="https://github.com/user-attachments/assets/0841667b-b6bd-455a-95d9-94e69df302ca" />
+DH Knight's Quest is a classic side-scrolling platformer where players explore dangerous medieval lands, defeat enemies, collect treasures, and face the Dark Knight in an epic final battle.
 
-<img width="814" height="477" alt="Boss" src="https://github.com/user-attachments/assets/93a04a5d-a24d-467f-834d-5b8a719e39d1" />
+The project was built as a complete portfolio game to practice gameplay programming, UI systems, save systems, enemy AI, and game architecture using Godot.
 
-<img width="1154" height="682" alt="Victory" src="https://github.com/user-attachments/assets/e6e157d1-9848-4272-8dc7-b12c2dcbf064" />
+---
 
-Play it here:
+# ✨ Features
 
-([itch.io](https://diefrank.itch.io/dh-knights-quest))
+- ⚔️ Melee combat
+- 👹 Multiple enemy types
+- 🏹 Skeleton Archer
+- 👑 Dark Knight Boss
+- ❤️ Heart-based health system
+- 💾 Save & Continue
+- 📍 Checkpoints
+- 🪙 Coin collection
+- 🎵 Background music
+- 🔊 Sound effects
+- ⏸ Pause Menu
+- ☠️ Game Over screen
+- 🏆 Victory screen
+- 🗺️ Level Selection
+- 🎯 5 handcrafted levels
+
+---
+
+# 🛠 Built With
+
+- Godot 4.2.2
+- GDScript
+- Pixel Art
+- JSON Save System
+
+---
+
+# 🎮 Controls
+
+| Key | Action |
+|------|--------|
+| A / D | Move |
+| Space | Jump |
+| Left Mouse | Attack |
+| ESC | Pause |
+
+---
+
+# 📥 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/YourUser/DHKnightsQuest.git
+```
+
+Open the project with **Godot 4.2.2**
+
+Run
+
+```
+F5
+```
+
+---
+
+# 📦 Download
+
+Playable version available on:
+
+👉 itch.io:https://diefrank.itch.io/dh-knights-quest
+
+---
+
+# 👨‍💻 Developer
+
+Diego Hernandez
+
+GitHub:https://github.com/diegohernandezfrt-debug/DH-Knight-s-Quest-
