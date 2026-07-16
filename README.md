@@ -8,23 +8,20 @@ A 2D medieval action-platformer developed with **Godot Engine** and **GDScript**
 
 ### Main Menu
 
-![<img width="1151" height="677" alt="Menu" src="https://github.com/user-attachments/assets/0f450a30-6dc2-4f7d-9e29-c80aaa83918b" />
-]
+![Main Menu]<img width="1151" height="677" alt="Menu" src="https://github.com/user-attachments/assets/0f450a30-6dc2-4f7d-9e29-c80aaa83918b" />
 
 ### Gameplay
 
-![Gameplay](<img width="1149" height="677" alt="Level01" src="https://github.com/user-attachments/assets/e53a814d-d431-4a49-a740-f7df4aaad79e" />
-)
+![Gameplay]<img width="1149" height="677" alt="Level01" src="https://github.com/user-attachments/assets/e53a814d-d431-4a49-a740-f7df4aaad79e" />
 
 ### Boss Fight
 
-![Boss](<img width="814" height="477" alt="Boss" src="https://github.com/user-attachments/assets/71cda366-8dd9-4080-a101-90d087a78e17" />
-)
+![Boss]<img width="814" height="477" alt="Boss" src="https://github.com/user-attachments/assets/71cda366-8dd9-4080-a101-90d087a78e17" />
 
 ### Victory Screen
 
-![Victory](<img width="1154" height="682" alt="Victory" src="https://github.com/user-attachments/assets/7ba6e500-c733-4c8f-ae93-490235ef9696" />
-)
+![Victory]<img width="1154" height="682" alt="Victory" src="https://github.com/user-attachments/assets/7ba6e500-c733-4c8f-ae93-490235ef9696" />
+
 
 ---
 
