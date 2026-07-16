@@ -8,8 +8,8 @@ A 2D medieval action-platformer developed with **Godot Engine** and **GDScript**
 
 ### Main Menu
 
-![Main Menu](<img width="1151" height="677" alt="Menu" src="https://github.com/user-attachments/assets/0f450a30-6dc2-4f7d-9e29-c80aaa83918b" />
-)
+![<img width="1151" height="677" alt="Menu" src="https://github.com/user-attachments/assets/0f450a30-6dc2-4f7d-9e29-c80aaa83918b" />
+]
 
 ### Gameplay
 
