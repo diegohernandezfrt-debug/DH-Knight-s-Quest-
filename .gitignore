@@ -1,2 +1,15 @@
 # Godot 4+ specific ignores
 .godot/
+# Exported builds
+*.apk
+*.aab
+*.exe
+*.zip
+
+Release/
+
+*.zip
+
+!Exports/
+!Exports/README.md
+!Exports/README.md.txt
